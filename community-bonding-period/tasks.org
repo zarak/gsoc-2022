@@ -3,6 +3,13 @@
 *** DONE Read Accepted Contributor Information page
 *** DONE Setup mirror repo on GitHub for project management
 https://github.com/zarak/goal
+
+I had to clear large files before I could push to the repo - i.e. history is rewritten
+#+begin_src bash
+bfg --strip-blobs-bigger-than 50M
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+#+end_src
 *** TODO Write derivations for each =Goal= module
 *** TODO Combine derivations into top-level nix shell
 *** TODO Read GSoC roles and responsibilities page
