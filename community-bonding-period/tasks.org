@@ -10,6 +10,50 @@ bfg --strip-blobs-bigger-than 50M
 git reflog expire --expire=now --all
 git gc --prune=now --aggressive
 #+end_src
+
+bfg summary
+#+begin_src
+Cleaning
+--------
+
+Found 408 commits
+Cleaning commits:       100% (408/408)
+Cleaning commits completed in 238 ms.
+
+Updating 2 Refs
+---------------
+
+	Ref                          Before     After
+	------------------------------------------------
+	refs/heads/main            | 64c86696 | 501f85a7
+	refs/remotes/origin/master | 64c86696 | 501f85a7
+
+Updating references:    100% (2/2)
+...Ref update completed in 18 ms.
+
+Commit Tree-Dirt History
+------------------------
+
+	Earliest                                              Latest
+	|                                                          |
+	................DDmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+	D = dirty commits (file tree fixed)
+	m = modified commits (commit message or parents changed)
+	. = clean commits (no changes to file tree)
+
+	                        Before     After
+	-------------------------------------------
+	First modified commit | bd7e9615 | 29bde34b
+	Last dirty commit     | 64ca2c48 | eccd1685
+
+Deleted files
+-------------
+
+	Filename     Git id
+	---------------------------------------------------------
+	spikes.csv | 864d329c (68.7 MB), ff1d953a (106.9 MB), ...
+#+end_src
 *** TODO Write derivations for each =Goal= module
 *** TODO Combine derivations into top-level nix shell
 *** TODO Read GSoC roles and responsibilities page
