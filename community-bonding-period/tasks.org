@@ -1,22 +1,26 @@
-* 2022-05-23 [1/4]
-** DONE Read Accepted Contributor Information page
-** TODO Write derivations for each =Goal= module
-** TODO Combine derivations into top-level nix shell
-** TODO Read GSoC roles and responsibilities page
+* 2022-05-23
+** Tasks [1/4]
+*** DONE Read Accepted Contributor Information page
+*** TODO Write derivations for each =Goal= module
+*** TODO Combine derivations into top-level nix shell
+*** TODO Read GSoC roles and responsibilities page
 ** Notes
+*** Clearing large files from git cache
 The git cache seems to have large files - should these be pruned?
 
-Find 10 largest blobs:
+Find the 10 largest blobs.
 #+begin_src bash
 git verify-pack -v .git/objects/pack/pack-7741dec2030092fba0aed6b804e03a9c8094c1c9.idx \
                                               | sort -k 3 -n \
                                               | tail -10
 #+end_src
 
-The large files are data files in the applications dir:
+The large files are data files in the applications dir.
 #+begin_src bash
 git rev-list --objects --all | grep b50e4b6
 #+end_src
-* 2022-05-24 [0/2]
-** TODO Set up Payoneer registration
-** TODO Setup fork on GitHub for project management
+
+* 2022-05-24
+** Tasks [0/2]
+*** TODO Set up Payoneer registration
+*** TODO Setup mirror repo on GitHub for project management
