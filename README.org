@@ -1,1 +1,10 @@
-* gsoc-2022
+* Google Summer of Code 2022
+
+** Community Bonding Period
+*** 2022-05-23 [0/5]
+**** TODO Write derivations for each =Goal= module
+**** TODO Read Accepted Contributor Information page
+**** TODO Read GSoC roles and responsibilities page
+**** TODO Introduce myself to community on IRC
+*** 2022-05-24 [0/1]
+**** TODO Set up Payoneer registration
