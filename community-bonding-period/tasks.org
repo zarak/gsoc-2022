@@ -1,5 +1,5 @@
 * 2022-05-23
-** Tasks [2/4]
+** Tasks [2/2]
 *** DONE Read GSoC email materials
 1. Accepted Contributor Information page
 2. GSoC roles and responsibilities page
@@ -56,11 +56,6 @@ Deleted files
 	---------------------------------------------------------
 	spikes.csv | 864d329c (68.7 MB), ff1d953a (106.9 MB), ...
 #+end_src
-*** TODO Write derivations for each =Goal= module
-1. core
-2. probability
-3. graphical
-4. geometry
 ** Notes
 *** Clearing large files from git cache
 The git cache seems to have large files - should these be pruned?
@@ -78,6 +73,15 @@ git rev-list --objects --all | grep b50e4b6
 #+end_src
 
 * 2022-05-24
-** Tasks [0/2]
+** Tasks [2/3]
+*** DONE Write derivations for each =Goal= module
+1. core
+2. probability
+3. graphical
+4. geometry
+*** DONE Combine derivations into top-level nix shell
+** Notes
+Use =cabal2nix= in each of the modules to generate derivations and then combine them in a shell.nix file. I should also create a flake.nix, but for now I think this is all I need to import in the hasktorch-skeleton shell.
+* 2022-05-25
+** Tasks [0/1]
 *** TODO Set up Payoneer registration
-*** TODO Combine derivations into top-level nix shell
