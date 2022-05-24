@@ -80,6 +80,7 @@ git rev-list --objects --all | grep b50e4b6
 3. graphical
 4. geometry
 *** DONE Combine derivations into top-level nix shell
+*** TODO Copy hasktorch skeleton template files to goal folder
 ** Notes
 Use =cabal2nix= in each of the modules to generate derivations and then combine them in a shell.nix file. I should also create a flake.nix, but for now I think this is all I need to import in the hasktorch-skeleton shell.
 * 2022-05-25
