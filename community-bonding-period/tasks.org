@@ -81,7 +81,12 @@ git rev-list --objects --all | grep b50e4b6
 4. geometry
 *** DONE Combine derivations into top-level nix shell
 Use =cabal2nix= in each of the modules to generate derivations and then combine them in a shell.nix file. I should also create a flake.nix, but for now I think this is all I need to import in the hasktorch-skeleton shell.
-*** TODO Configure haskell language server in nix shell
+*** TODO Configure dependencies in nix shell
+1. haskell-language-server
+2. blas
+3. lapack
+4. zlib
+
 ** Notes
 I set the default compiler version in the nix derivation to =9.0.2=, since the stack resolver in the goal library is set to =19.4=. The ghc compiler version in the hasktorch skeleton template is set to =8.10.4=.
 * 2022-05-25
