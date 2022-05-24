@@ -2,7 +2,9 @@
 ** Git commit workflow
 - Set upstream to GitLab and origin to my forked version on GitHub
 - I'll create a repo on GitHub so that I can do project management without cluttering the Goal repo on GitLab
-** Pruning large files in .git cache
+** DONE Pruning large files in .git cache
 ** Reword proposal summary
+** Finalize milestones for phase 1
 ** How can I include Hasktorch as a dependency for Goal using nix?
 - Workaround is to use the Hasktorch template and manually copy goal source code folder into directory
+- Try packaging goal in nix and copying haskell skeleton template files to dir
