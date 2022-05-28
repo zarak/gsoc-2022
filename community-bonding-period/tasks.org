@@ -73,7 +73,7 @@ git rev-list --objects --all | grep b50e4b6
 #+end_src
 
 * 2022-05-24
-** Tasks [2/3]
+** Tasks [3/3]
 *** DONE Write derivations for each =Goal= module
 1. core
 2. probability
@@ -81,16 +81,67 @@ git rev-list --objects --all | grep b50e4b6
 4. geometry
 *** DONE Combine derivations into top-level nix shell
 Use =cabal2nix= in each of the modules to generate derivations and then combine them in a shell.nix file. I should also create a flake.nix, but for now I think this is all I need to import in the hasktorch-skeleton shell.
-*** TODO Configure dependencies in nix shell
+*** DONE Configure dependencies in nix shell
 1. haskell-language-server
 2. blas
 3. lapack
 4. zlib
 
 ** Notes
+I created a nix-shell
+#+begin_src nix
+{ compiler ? "ghc902" }:
+
+let
+  config = {
+    packageOverrides = pkgs: rec {
+      haskell = pkgs.haskell // {
+        packages = pkgs.haskell.packages // {
+          "${compiler}" = pkgs.haskell.packages."${compiler}".override {
+            overrides = haskellPackagesNew: haskellPackagesOld: rec {
+              goal-core =
+                haskellPackagesNew.callPackage ./core/goal-core.nix {
+                  zlib = pkgs.zlib;
+                  blas = pkgs.blas;
+                  liblapack = pkgs.liblapack;
+                };
+
+              goal-geometry =
+                haskellPackagesNew.callPackage ./geometry/goal-geometry.nix { };
+
+              goal-probability =
+                haskellPackagesNew.callPackage ./probability/goal-probability.nix { };
+
+              goal-graphical =
+                haskellPackagesNew.callPackage ./graphical/goal-graphical.nix { };
+            };
+          };
+        };
+      };
+    };
+  };
+
+  pkgs = import <nixpkgs> { inherit config; };
+in
+  { goal = pkgs.haskell.packages.${compiler}.goal-graphical;
+    buildInputs = with pkgs; [
+      zlib
+      blas
+      liblapack
+      haskell-language-server
+    ];
+  }
+#+end_src
+
+but neither the haskell-language-server nor cabal build see the build-dependencies.
+
 I set the default compiler version in the nix derivation to =9.0.2=, since the stack resolver in the goal library is set to =19.4=. The ghc compiler version in the hasktorch skeleton template is set to =8.10.4=.
-* 2022-05-25
-** Tasks [0/3]
+* 2022-05-28
+** Tasks [0/2]
 *** TODO Set up Payoneer registration
+*** TODO Fix dependencies in nix shell
+
+* 2022-05-29
+** Tasks [0/2]
 *** TODO Copy hasktorch skeleton template files to goal folder
 *** TODO Create a nix flake for the goal library and use =nix develop=
