@@ -145,3 +145,7 @@ I set the default compiler version in the nix derivation to =9.0.2=, since the s
 ** Tasks [0/2]
 *** TODO Copy hasktorch skeleton template files to goal folder
 *** TODO Create a nix flake for the goal library and use =nix develop=
+
+* 2022-06-02
+** Tasks [0/1]
+*** TODO Update hasktorch to current HEAD in skeleton
